@@ -1,0 +1,21 @@
+class Solution {
+public:
+    ListNode* swapNodes(ListNode* head, int k) {
+       ListNode* cur = head;
+        vector<int> arr({});
+        while(cur)
+        {
+            arr.push_back(cur->val);
+            cur = cur->next;
+        }
+        int a = arr.size(), i = 0;
+        swap(arr[k-1], arr[a-k]);
+        cur = head;
+        while(cur)
+        {
+            cur->val = arr[i++];
+            cur = cur->next;
+        }
+        return head;
+    }
+};
